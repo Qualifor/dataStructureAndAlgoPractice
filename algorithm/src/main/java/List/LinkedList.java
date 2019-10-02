@@ -80,4 +80,32 @@ public class LinkedList {
             node1 = temp;
         }
     }
+
+    public int getMiddle(){
+        if(root.next == null){
+            System.out.println("链表为空!!!");
+            return -1;
+        }
+
+        if(root.next.next == null){
+            System.out.println("链表中只有一个数字");
+            return root.next.val;
+        }
+
+        Node fast = root.next.next;
+        root = root.next;
+        while(true){
+            root = root.next;
+            if(fast.next == null){
+                break;
+            }
+
+            if(fast.next.next == null){
+                break;
+            }
+
+            fast = fast.next.next;
+        }
+        return root.val;
+    }
 }
